@@ -19,7 +19,7 @@ else
     fi
 fi
 
-ln -s "$(pwd)/conf-files/${Distro}-${Arch}/" "/etc/lmce-build"
+ln -s "$(pwd)/conf-files/${Distro}-${Arch}" "/etc/lmce-build"
 
 echo "Creating symlink in /usr/local/lmce-build"
 if [ -L "/usr/local/lmce-build" ]; then
