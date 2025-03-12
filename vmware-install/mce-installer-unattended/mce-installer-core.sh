@@ -354,6 +354,18 @@ fi
 Setup_Apt_Conffiles
 FakeUpdates
 Setup_Pluto_Conf
+
+# Check if we're running on Ubuntu 22.04 (jammy) and run specific setup if needed
+UBUNTU_CODENAME=$(lsb_release -c -s)
+if [[ "$UBUNTU_CODENAME" == "jammy" ]]; then
+    echo "Detected Ubuntu 22.04 (jammy), running jammy-specific setup..."
+    if [[ -x "./jammy/setup.sh" ]]; then
+        ./jammy/setup.sh || ExitInstaller "Failed to run jammy-specific setup"
+    else
+        echo "Warning: jammy setup script not found or not executable"
+    fi
+fi
+
 Install_DCERouter
 Create_And_Config_Devices
 Configure_Network_Options
