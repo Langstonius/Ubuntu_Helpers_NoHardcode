@@ -2,10 +2,9 @@
 
 set -e
 
-
-Distro="$(lsb_release -c -s)"
-Release="$(lsb_release -s -r)"
-Arch="$(apt-config dump | grep '^APT::Architecture' | sed  's/.* "\(.*\)";$/\1/g')"
+Distro="$(lsb_release -c -s | tr -d '\n')"
+Release="$(lsb_release -s -r | tr -d '\n')"
+Arch="$(apt-config dump | grep '^APT::Architecture' | sed 's/.* "\(.*\)";$/\1/g' | head -1 | tr -d '\n')"
 
 # Install default config files
 echo "Installing Default Configs For $Distro-$Arch"
