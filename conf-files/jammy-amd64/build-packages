@@ -1,3 +1,7 @@
+# Updated build-packages file for Ubuntu Jammy
+# Original packages that had no direct replacement are commented out with their status
+# Modified: 2025-03-21
+
 alsa-source
 asterisk-dev
 autoconf
@@ -19,7 +23,7 @@ dpkg-repack
 fakeroot
 gdb
 genisoimage
-gnome-applets
+# gnome-applets - Appears to be deprecated, determine if needed and find alternative
 gtk-doc-tools
 kernel-package
 libaa1-dev
@@ -38,14 +42,15 @@ libcdio-dev
 libcdparanoia0-dev
 libconfuse-dev
 libcurl4-openssl-dev
-libdancer-xml0-dev
+# libdancer-xml0-dev - Not available, consider alternative XML libraries
 libdbus-1-dev
 libdbus-glib-1-dev
 libdevmapper-dev
-libdvb-dev
+# libdvb-dev - Check for replacement or build from source
 libdvdnav-dev
 libdvdread-dev
-libesd0-dev
+# libesd0-dev - Replaced by libpulse-dev
+libpulse-dev
 libexiv2-dev
 libextractor-dev
 libfaad-dev
@@ -54,16 +59,19 @@ libftdi-dev
 libfuse-dev
 libgl1-mesa-dev
 libglade2-dev
-libgnome2-dev
-libgnomeui-dev
-libgnomevfs2-dev
+# libgnome2-dev - Replace with libgtk-3-dev
+libgtk-3-dev
+# libgnomeui-dev - Replace with libgtk-3-dev
+# libgnomevfs2-dev - Replace with libgio-dev (part of libglib2.0-dev)
+libglib2.0-dev
 libgtk2.0-dev
 libid3tag0-dev
 libiec61883-dev
 libimlib2-dev
 libirman-dev
 libjpeg-dev
-libkonq5-dev
+# libkonq5-dev - Replace with libkf5konq-dev
+libkf5konq-dev
 liblinphone-dev
 liblircclient-dev
 libmad0-dev
@@ -77,7 +85,8 @@ libpcre3-dev
 kdelibs5-dev
 libpostproc-dev
 libpulse-dev
-libqt4-dev
+# libqt4-dev - Replace with qtbase5-dev
+qtbase5-dev
 libreadline-dev
 librpm-dev
 libsdl-gfx1.2-dev
@@ -157,17 +166,20 @@ chrpath
 libxml++2.6-dev
 libao-dev
 libssl-dev
-libcrystalhd-dev
+# libcrystalhd-dev - Check if available or needed
 libvorbis-dev
 libva-dev
 libclass-dbi-perl
 libnet-upnp-perl
-python3-oauth
+# python3-oauth - Replace with python3-oauthlib
+python3-oauthlib
 python3-lxml
+# python3-mysqldb is actually available in Jammy
 python3-mysqldb
 python3-pycurl
-python3-urlgrabber
-fftw-dev
+# python3-urlgrabber - Replace with python3-requests
+python3-requests
+# fftw-dev - Appears to be duplicate of libfftw3-dev
 libexif-dev
 libdate-manip-perl
 libxml-simple-perl
@@ -181,6 +193,7 @@ libcdio-cdda-dev
 libcdio-paranoia-dev
 libass-dev
 libcec-dev
+# libcec-platform-dev - Check for replacement or build from source
 libxml-xpath-perl
 dh-autoreconf
 libpq-dev
@@ -198,8 +211,7 @@ python3-protobuf
 libprotoc-dev
 linux-source
 linux-headers-generic
-libqjson-dev
-libcec-platform-dev
+# libqjson-dev - Use Qt5's JSON support
 libow-dev
 libvlc-dev
 libjsoncpp-dev
@@ -209,7 +221,7 @@ libsdl2-image-dev
 libsdl2-mixer-dev
 libsdl2-net-dev
 libsdl2-ttf-dev
-qt5-default
+# qt5-default - Replaced by qtbase5-dev
 qtbase5-dev
 libdbus-c++-dev
 qtdeclarative5-dev
@@ -221,9 +233,9 @@ fastjar
 libola-dev
 libgdbm-dev
 libgoogle-perftools-dev
-dh-systemd 
+# dh-systemd - Now part of debhelper
 libsystemd-dev
-libcec-platform-dev
+# libcec-platform-dev - Duplicate entry
 libbluray-dev 
 freeglut3-dev
 libxcb-dpms0-dev libxcb-screensaver0-dev libxcb-image0-dev libxcb-util-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-ewmh-dev
